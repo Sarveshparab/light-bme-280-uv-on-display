@@ -20,11 +20,11 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 // Create the Lightsensor instance
 BH1750 lightMeter(0x23);
 Adafruit_BME280 bme;
-const int UV=A0;
+const int UV=A0;  // UV = 35 for esp32
 
 void setup() 
 {
-  Wire.begin(D1, D2);
+  Wire.begin(D1, D2); // 21-SDA  22-SCL for esp32 
   Serial.begin(115200);
   if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // Address 0x3C for 128x64
     Serial.println(F("SSD1306 allocation failed"));
